@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="container min-h-screen px-8 py-4 mx-auto bg-gray-100">
+    <img
+      alt="prompt logo"
+      class="w-56 py-12 mx-auto"
+      src="./assets/prompt-logo.png"
+    />
+    <h1 class="text-2xl text-red-700">survey task</h1>
+    <recursive-container
+      v-for="(item, i) in surveyData"
+      :key="i"
+      :item="item"
+    ></recursive-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import surveyData from "./SurveyData";
+import RecursiveContainer from "@/components/RecursiveContainer";
 export default {
   name: "App",
+  data() {
+    return {
+      surveyData
+    };
+  },
   components: {
-    HelloWorld
+    RecursiveContainer
   }
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
