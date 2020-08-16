@@ -15,18 +15,18 @@
 </template>
 
 <script>
-import surveyData from "./SurveyData";
+import surveyData from "@/data/SurveyData";
 import RecursiveContainer from "@/components/RecursiveContainer";
 export default {
   name: "App",
   data() {
     return {
-      surveyData
+      surveyData,
     };
   },
   components: {
-    RecursiveContainer
-  }
+    RecursiveContainer,
+  },
 };
 </script>
 
