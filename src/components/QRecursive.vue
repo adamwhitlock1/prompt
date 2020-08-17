@@ -6,9 +6,14 @@
       :options="options"
       @changed="checkValidation"
     />
-    <q-numeric v-if="item.type === 'numeric'" @changed="checkValidation" />
+    <q-numeric
+      v-if="item.type === 'numeric'"
+      :title="title"
+      @changed="checkValidation"
+    />
     <q-multiple
       v-if="item.type === 'multiple'"
+      :title="title"
       :choices="item.options.choices"
       @changed="checkValidation"
     />
@@ -23,12 +28,12 @@
 </template>
 
 <script>
-import QBoolean from "@/components/QBoolean";
-import QNumeric from "@/components/QNumeric";
-import QMultiple from "@/components/QMultiple";
-import validate from "../validation";
+import QBoolean from '@/components/QBoolean';
+import QNumeric from '@/components/QNumeric';
+import QMultiple from '@/components/QMultiple';
+import validate from '../validation';
 export default {
-  name: "RecursiveContainer",
+  name: 'RecursiveContainer',
   components: {
     QBoolean,
     QNumeric,
@@ -53,7 +58,7 @@ export default {
       return this.answer;
     },
     title() {
-      return this.item.title || "No title given";
+      return this.item.title || 'No title given';
     },
     options() {
       return this.item.options || undefined;

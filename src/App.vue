@@ -5,28 +5,31 @@
       class="w-56 py-12 mx-auto"
       src="./assets/prompt-logo.png"
     />
-    <h1 class="text-2xl text-red-700">survey task</h1>
-    <recursive-container
-      v-for="(item, i) in surveyData"
-      :key="i"
-      :item="item"
-    ></recursive-container>
+    <survey-form name="survey">
+      <q-recursive
+        v-for="(item, i) in surveyData"
+        :key="i"
+        :item="item"
+      ></q-recursive>
+    </survey-form>
   </div>
 </template>
 
 <script>
-import surveyData from "@/data/SurveyData";
-import RecursiveContainer from "@/components/RecursiveContainer";
+import surveyData from '@/data/SurveyData';
+import QRecursive from '@/components/QRecursive';
+import SurveyForm from '@/components/SurveyForm';
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
-      surveyData,
+      surveyData
     };
   },
   components: {
-    RecursiveContainer,
-  },
+    SurveyForm,
+    QRecursive
+  }
 };
 </script>
 

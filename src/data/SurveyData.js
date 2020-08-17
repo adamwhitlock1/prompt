@@ -1,31 +1,37 @@
 export default [
   {
-    type: "boolean",
-    title: "boolean question title 1",
+    type: 'boolean',
+    title: 'BOOLEAN question 1',
     options: {
-      labelFalse: "no",
-      labelTrue: "yes",
+      labelTrue: 'yes',
+      labelFalse: 'no'
     },
     nested: [
       {
-        type: "multiple",
-        title: "MULTIPLE question title 1",
+        type: 'multiple',
+        title: 'MULTIPLE question 1',
         options: {
           exact: 2,
-          choices: ["one", "two", "three", "four", "five", "six"],
+          choices: ['one', 'two', 'three', 'four', 'five', 'six']
         },
         nested: [
           {
-            type: "boolean",
-            title: "boolean question title 2",
+            type: 'boolean',
+            title: 'BOOLEAN question 2',
             options: {
-              labelFalse: "no",
-              labelTrue: "yes",
+              labelTrue: 'SURE',
+              labelFalse: 'NOPE'
             },
-            nested: [],
-          },
-        ],
-      },
-    ],
-  },
+            nested: [
+              {
+                type: 'numeric',
+                title: 'NUMERIC question 1',
+                nested: []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
