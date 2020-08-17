@@ -14,7 +14,7 @@
     <q-multiple
       v-if="item.type === 'multiple'"
       :title="title"
-      :choices="item.options.choices"
+      :options="options"
       @changed="checkValidation"
     />
     <div v-if="hasNested && hasAnswer === true">

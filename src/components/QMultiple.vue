@@ -3,17 +3,27 @@
     <p class="font-bold capitalize" :id="uuids.title" data-testid="m-title">
       {{ title }}
     </p>
-    <div class="flex items-center" v-for="(choice, i) in choices" :key="i">
+    <p v-if="instructions" class="text-xs italic font-light text-gray-700">
+      Please choose {{ instructions.text }} {{ instructions.number }} options
+      below
+    </p>
+    <div
+      class="flex items-center"
+      v-for="(choice, i) in options.choices"
+      :key="i"
+    >
       <input
         :data-testid="`m-input-${i}`"
         :data-title-id="uuids.title"
         type="checkbox"
         :value="choice"
         v-model="checked"
-        class="mr-2"
+        class="mr-2 cursor-pointer"
         :id="generateInputMap(i)"
       />
-      <label :for="generateInputMap(i)">{{ choice }}</label>
+      <label class="cursor-pointer" :for="generateInputMap(i)">{{
+        choice
+      }}</label>
     </div>
   </div>
 </template>
@@ -22,8 +32,8 @@
 import uuid from '@/utils/uuid';
 export default {
   props: {
-    choices: {
-      type: Array,
+    options: {
+      type: Object,
       required: true
     },
     title: {
@@ -39,6 +49,17 @@ export default {
       checked: [],
       inputMap: []
     };
+  },
+  computed: {
+    instructions() {
+      if (Object.prototype.hasOwnProperty.call(this.options, 'min')) {
+        return { text: 'a minimum of', number: this.options.min };
+      }
+      if (Object.prototype.hasOwnProperty.call(this.options, 'exact')) {
+        return { text: 'exactly', number: this.options.exact };
+      }
+      return null;
+    }
   },
   methods: {
     generateInputMap(i) {

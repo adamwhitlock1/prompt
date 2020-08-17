@@ -33,5 +33,20 @@ export default [
         ]
       }
     ]
+  },
+  {
+    type: 'multiple',
+    title: 'MULTIPLE question 2',
+    options: {
+      min: 3,
+      choices: ['a', 'b', 'c', 'd', 'e', 'f']
+    },
+    nested: [
+      {
+        type: 'numeric',
+        title: 'NUMERIC question 2',
+        nested: []
+      }
+    ]
   }
 ];

@@ -1,13 +1,10 @@
 export default (item, payload) => {
   switch (item.type) {
-    case "boolean":
-      console.log("VALIDATE BOOLEAN");
+    case 'boolean':
       return payload;
-    case "numeric":
-      console.log("VALIDATE NUMERIC");
-      console.log({ payload });
+    case 'numeric':
       return payload > 0;
-    case "multiple":
+    case 'multiple':
       return validateMultiple(item, payload);
     default:
       return false;
@@ -15,17 +12,12 @@ export default (item, payload) => {
 };
 
 const validateMultiple = (item, payload) => {
-  console.log("VALIDATE MULTIPLE");
-  console.log({ min: item.options.min });
-  console.log({ length: payload.length });
-  if (Object.prototype.hasOwnProperty.call(item.options, "min")) {
-    console.log("MIN");
+  if (Object.prototype.hasOwnProperty.call(item.options, 'min')) {
     const result = payload.length >= item.options.min;
     console.log({ result });
     return payload.length >= item.options.min;
   }
-  if (Object.prototype.hasOwnProperty.call(item.options, "exact")) {
-    console.log("EXACT");
+  if (Object.prototype.hasOwnProperty.call(item.options, 'exact')) {
     return payload.length === item.options.exact;
   }
   return true;
