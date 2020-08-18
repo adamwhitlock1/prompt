@@ -1,4 +1,8 @@
-# prompt-interview
+# Prompt Interview Repo
+___
+
+# Front end
+I created a vue-cli based project that can be run with the following commands.
 
 ## Project setup
 ```
@@ -17,13 +21,20 @@ yarn build
 
 ### Run your unit tests
 ```
-yarn test:unit
+yarn test
 ```
+I didn't write extensive unit tests, but just a single one for now due to time constraints. On most front end projects I aim for 80% unit test coverage, and would also build out e2e tests via cypress.
 
-### Lints and fixes files
+### Data for frontend
+The main array of questions for the fronend is located at
 ```
-yarn lint
+src/data/SurveyData.js
 ```
+___
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Backend documentation
+```
+Prompt-Backend.md
+```
+This contains all the data models and list of functions that I think would be used for the Appointment/Employee Utilization question.
+
